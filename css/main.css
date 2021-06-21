@@ -1,0 +1,345 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    scroll-behavior:smooth;
+}
+:root{
+
+    --sky:linear-gradient(120deg, #bef0f1 0%, #90d8cc 100%);
+}
+/*Global stylings */
+a{
+    text-decoration:none;
+    color:#b9b9b9;
+    
+}
+ul li{
+    list-style:none;
+}
+button{
+    z-index: 1;
+    height:40px;
+    width:100px;
+    outline:none;
+    border-radius:2rem;
+    border:1px solid transparent;
+    box-shadow: -1px -1px 5px rgba(0,0,0,0.89);    
+}
+/*Global stylings */
+body{
+    width: 100%;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    transition:2s;
+
+}
+#blur.blurred{
+    filter:blur(20px);
+	user-select:none;
+	pointer-events:none;
+	
+}
+body.active, body.active header{
+    background: #111111 ;
+    color:#fff;
+    transition:1s;
+
+}
+body.active header{
+    box-shadow: 5px 5px 10px rgba(255,255, 255, 0.2);
+}
+header{
+    background:#fff;
+    width:100%;
+    justify-content: space-between;
+    position:fixed;
+    top:0; right:0;
+    display: flex;
+    box-shadow:5px 5px 15px rgba(0,0,0,0.09);
+    z-index: 1000000;
+    transition:3s;
+}
+header #navBar .btn{
+    margin:auto 10px;
+}
+
+.logo{
+    padding-left:2rem;
+    height:60px;
+    line-height:60px;
+    font-size:2em;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+/*toggle button stylings ---------------------xxxxxxxxxxxxxxx*/
+#toggle{
+    width:60px;
+    height:60px;
+    background:#0b4203fa;
+    position:absolute;
+    top:0;
+    right:0;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+#toggle.active{
+    background:rgb(214, 211, 25);
+}
+#toggle.active::before{
+    transform:translateY(0) rotate(405deg) ;
+    background:rgb(1, 128, 8);
+}
+#toggle.active::after{
+    transform:translateY(0) rotate(-405deg) ;
+    background:rgb(1, 128, 8);
+}
+#toggle::before{
+    content:'';
+    position:absolute;
+    width:30px;
+    height:2px;
+    background:rgb(214, 211, 25);
+    transition:1s;
+    transform:translateY(5px);
+}
+#toggle::after{
+    content:'';
+    position:absolute;
+    width:30px;
+    height:2px;
+    background:rgb(214, 211, 25);
+    transition:1s;
+    transform:translateY(-5px);
+}
+
+/*toggle button stylings ---------------------xxxxxxxxxxxxxxx*/
+
+#navBar ul{
+    position:relative;
+    right:60px;
+    display: flex;
+    height:60px;
+    transition:1s;
+    width:0;
+    overflow: hidden;
+}
+#navBar.active ul{
+    width:600px;
+}
+#navBar ul li {
+    padding:0 20px;
+}
+#navBar ul li a{
+    font-size:1.3em;
+    height:60px;
+    line-height: 60px;
+    font-family: arial, sans-serif;
+    font-weight: 600;
+    transition:1s ;
+    border-bottom:2px solid transparent;
+    transition-property: color, border-bottom;
+}
+#navBar ul li a:hover{
+    color: #000000fa;
+    border-bottom:2px solid rebeccapurple;
+}
+section{
+    height: 100vh;
+    background:#f5f5f5;
+    max-width:1200px;
+    margin:0 auto;
+}
+.siteTitle{
+    width:100%;
+    display: flex;
+    height:100vh;
+    max-width: 100%;
+    justify-content: center;
+    align-items: center;
+    background:url(../assets/aleks-marinkovic-j3aqw_0cNQM-unsplash.jpg);
+    background-size:cover;
+    background-position:center;
+}
+.siteTitle::before{
+    content:'';
+    position:absolute;
+    top:60px;
+    width:100%;
+    max-width: 100%;
+    height: 91vh;
+    background:#000;
+    transition:1s;
+    opacity:0.4;
+}
+
+
+.siteTitle .btn{
+    z-index: 1;
+    padding:1.5rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline:none;
+    border-radius:2rem;
+    background: #90d8cc ;
+    border:1px solid transparent;
+    color:#ffffff;
+    font-size: 1.2rem;
+    box-shadow: -1px -1px 5px rgba(0,0,0,0.89);
+    transition:2s background;
+}
+.siteTitle .btn:hover{
+    border:1px solid #fff;
+    background:transparent;
+}
+.siteTitle .btn:hover{
+    box-shadow: -1px -1px 15px rgba(0,0,0,0.89);
+}
+body.active .siteTitle .btn{
+    box-shadow: -1px -1px 5px rgba(255,255,255,0.89);
+}
+body.active .siteTitle .btn:hover{
+    box-shadow: -1px -1px 10px rgba(255,255, 255, 0.9);
+}
+
+.siteTitle .navBar {
+    position:relative;
+    right:60px;
+}
+
+
+
+
+
+
+
+
+
+/* popup stylings -------------------------*/
+
+#popup{
+	width:600px;
+	position:fixed;
+	top:40%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	box-shadow:0px 5px 30px rgba(0,0,0,0.7);
+	padding:40px 40px 30px 40px;
+	user-select:none;
+	background:#ffffff;
+	visibility:hidden;
+	opacity:0;
+	transition:0.5s;
+	border-radius:5px;
+}
+#popup.active{
+	top:50%;
+	visibility:visible;
+	opacity:1;
+	transition:0.5s;
+}
+#popup h2{
+	text-transform:uppercase;
+	font-size:.8em;
+	letter-spacing:1.1px;
+}
+#popup h2 span{
+	text-decoration:italic;
+	
+	
+}
+/*
+#popup ul  li:nth-child(even){
+	background:#959595;
+	transition:0.5s color:
+}
+#popup ul li:nth-child(even) a{
+		color:#fff;
+		transition:0.5s color; 
+}
+*/
+#popup ul li a{
+	color:#999999;
+	display:inline-block;
+	text-transform:capitalize;
+	transition:0.5s;
+	transition-property:background color padding-left;
+
+}
+#popup ul li a:hover{
+	padding-left:10px;
+	color:#000000;
+	transition:0.5s;
+	transition-property:background color padding-left;
+	
+}
+
+#popup .popExit{
+	display:inline-block;
+	padding:1rem 1.5em;
+	background:#333;
+	margin-top:10px;
+	text-align:center;
+	color:#ffffff;
+	font-size:1.5rem;
+	transition:0.5s background;
+	
+}
+
+#popup .popExit:hover{
+	background:#000;
+	transition:.5s background;
+}
+/* popup stylings -------------------------*/
+
+
+@media only screen and (max-width:1200px){
+    body{
+        max-width: 1200px;
+    }
+}
+@media only screen and (max-width:991px){
+	body{
+		max-width:991px;
+	}
+	
+	
+}
+@media only screen and (max-width:768px){
+	body{
+		max-width:768px;
+	}
+	
+	
+}
+@media only screen and (max-width:540px){
+	body{
+		max-width:540px;
+	}
+	#popup{
+		width:400px;
+		
+	}
+	
+}
+@media only screen and (max-width:360px){
+	body{
+		max-width:360px;
+	}
+	#popup{
+		width:300px;
+		
+	}
+	
+}
+@media only screen and (max-width:340px){
+	body{
+		max-width:340px;
+	}
+	
+	
+}
+
